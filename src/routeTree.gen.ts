@@ -10,13 +10,50 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SessionsRouteImport } from './routes/sessions'
+import { Route as ResultsRouteImport } from './routes/results'
+import { Route as ProblemRouteImport } from './routes/problem'
+import { Route as ObjectivesRouteImport } from './routes/objectives'
+import { Route as MethodologyRouteImport } from './routes/methodology'
+import { Route as FutureScopeRouteImport } from './routes/future-scope'
+import { Route as ConclusionRouteImport } from './routes/conclusion'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as AlertsRouteImport } from './routes/alerts'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SessionsRoute = SessionsRouteImport.update({
   id: '/sessions',
   path: '/sessions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProblemRoute = ProblemRouteImport.update({
+  id: '/problem',
+  path: '/problem',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObjectivesRoute = ObjectivesRouteImport.update({
+  id: '/objectives',
+  path: '/objectives',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MethodologyRoute = MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FutureScopeRoute = FutureScopeRouteImport.update({
+  id: '/future-scope',
+  path: '/future-scope',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConclusionRoute = ConclusionRouteImport.update({
+  id: '/conclusion',
+  path: '/conclusion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AnalyticsRoute = AnalyticsRouteImport.update({
@@ -29,6 +66,11 @@ const AlertsRoute = AlertsRouteImport.update({
   path: '/alerts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,35 +79,97 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/alerts': typeof AlertsRoute
   '/analytics': typeof AnalyticsRoute
+  '/conclusion': typeof ConclusionRoute
+  '/future-scope': typeof FutureScopeRoute
+  '/methodology': typeof MethodologyRoute
+  '/objectives': typeof ObjectivesRoute
+  '/problem': typeof ProblemRoute
+  '/results': typeof ResultsRoute
   '/sessions': typeof SessionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/alerts': typeof AlertsRoute
   '/analytics': typeof AnalyticsRoute
+  '/conclusion': typeof ConclusionRoute
+  '/future-scope': typeof FutureScopeRoute
+  '/methodology': typeof MethodologyRoute
+  '/objectives': typeof ObjectivesRoute
+  '/problem': typeof ProblemRoute
+  '/results': typeof ResultsRoute
   '/sessions': typeof SessionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/alerts': typeof AlertsRoute
   '/analytics': typeof AnalyticsRoute
+  '/conclusion': typeof ConclusionRoute
+  '/future-scope': typeof FutureScopeRoute
+  '/methodology': typeof MethodologyRoute
+  '/objectives': typeof ObjectivesRoute
+  '/problem': typeof ProblemRoute
+  '/results': typeof ResultsRoute
   '/sessions': typeof SessionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/alerts' | '/analytics' | '/sessions'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/alerts'
+    | '/analytics'
+    | '/conclusion'
+    | '/future-scope'
+    | '/methodology'
+    | '/objectives'
+    | '/problem'
+    | '/results'
+    | '/sessions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/alerts' | '/analytics' | '/sessions'
-  id: '__root__' | '/' | '/alerts' | '/analytics' | '/sessions'
+  to:
+    | '/'
+    | '/about'
+    | '/alerts'
+    | '/analytics'
+    | '/conclusion'
+    | '/future-scope'
+    | '/methodology'
+    | '/objectives'
+    | '/problem'
+    | '/results'
+    | '/sessions'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/alerts'
+    | '/analytics'
+    | '/conclusion'
+    | '/future-scope'
+    | '/methodology'
+    | '/objectives'
+    | '/problem'
+    | '/results'
+    | '/sessions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AlertsRoute: typeof AlertsRoute
   AnalyticsRoute: typeof AnalyticsRoute
+  ConclusionRoute: typeof ConclusionRoute
+  FutureScopeRoute: typeof FutureScopeRoute
+  MethodologyRoute: typeof MethodologyRoute
+  ObjectivesRoute: typeof ObjectivesRoute
+  ProblemRoute: typeof ProblemRoute
+  ResultsRoute: typeof ResultsRoute
   SessionsRoute: typeof SessionsRoute
 }
 
@@ -76,6 +180,48 @@ declare module '@tanstack/react-router' {
       path: '/sessions'
       fullPath: '/sessions'
       preLoaderRoute: typeof SessionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/problem': {
+      id: '/problem'
+      path: '/problem'
+      fullPath: '/problem'
+      preLoaderRoute: typeof ProblemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/objectives': {
+      id: '/objectives'
+      path: '/objectives'
+      fullPath: '/objectives'
+      preLoaderRoute: typeof ObjectivesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/methodology': {
+      id: '/methodology'
+      path: '/methodology'
+      fullPath: '/methodology'
+      preLoaderRoute: typeof MethodologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/future-scope': {
+      id: '/future-scope'
+      path: '/future-scope'
+      fullPath: '/future-scope'
+      preLoaderRoute: typeof FutureScopeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conclusion': {
+      id: '/conclusion'
+      path: '/conclusion'
+      fullPath: '/conclusion'
+      preLoaderRoute: typeof ConclusionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/analytics': {
@@ -92,6 +238,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlertsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,10 +257,26 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AlertsRoute: AlertsRoute,
   AnalyticsRoute: AnalyticsRoute,
+  ConclusionRoute: ConclusionRoute,
+  FutureScopeRoute: FutureScopeRoute,
+  MethodologyRoute: MethodologyRoute,
+  ObjectivesRoute: ObjectivesRoute,
+  ProblemRoute: ProblemRoute,
+  ResultsRoute: ResultsRoute,
   SessionsRoute: SessionsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
